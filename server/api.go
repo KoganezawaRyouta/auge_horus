@@ -23,11 +23,9 @@ func ApiNew(configName string) *Api {
 	router.GET("/trades", app.Trades)
 	router.GET("/monitor", app.Monitor)
 
-	// loggerMiddleware := NewLoudLoggerMiddleware()
-	// counters := []uppercut.Counter{loggerMiddleware}
 	app.Uppercut = uppercut.NewUppercut(router.Handler)
 	app.Uppercut.AddCounters(NewLoudLoggerMiddleware())
-	app.Uppercut.AddBeforeCounters(PanicWrapMiddleware)
+	app.Uppercut.AddSyncCounters(PanicWrapMiddleware)
 	return app
 }
 

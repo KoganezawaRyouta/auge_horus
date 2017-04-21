@@ -47,7 +47,7 @@ imports:
 - name: github.com/klauspost/crc32
   version: cb6bfca970f6908083f26f39a79009d608efd5cd
 - name: github.com/KoganezawaRyouta/uppercut
-  version: 4d3b0b36737874c7cb6adc2065dd595d71f3e349
+  version: 8f44bc5b94fbe466675fffabb7bcc4309da99a57
 - name: github.com/kr/logfmt
   version: b84e30acd515aadc4b783ad4ff83aff3299bdfe0
 - name: github.com/magiconair/properties
