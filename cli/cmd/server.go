@@ -20,7 +20,7 @@ var serverCmd = &cobra.Command{
 		go func() {
 			pid := os.Getpid()
 			stdlog.Printf("start server!! this pid %d\n", pid)
-			pemovePIDFile()
+			removePIDFile()
 			savePID(pid)
 			errsCh <- server.ApiNew(configName).Listen()
 		}()
@@ -28,7 +28,7 @@ var serverCmd = &cobra.Command{
 	},
 }
 
-func pemovePIDFile() {
+func removePIDFile() {
 	err := os.Remove(PIDFile)
 	if err != nil {
 		stdlog.Printf("Unable to remove pid file : %v\n", err)
