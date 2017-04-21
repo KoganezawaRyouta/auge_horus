@@ -1,0 +1,11 @@
+database:
+  adapter:  mysql
+  charset:  utf8mb4
+  encoding: utf8mb4
+  database: batch_coincheck
+  username: coin_app
+  password: test
+  host:     127.0.0.1
+  port:     3306
+  pool:     5
+  reconnect: true
