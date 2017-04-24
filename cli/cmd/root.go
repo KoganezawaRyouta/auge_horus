@@ -10,7 +10,7 @@ import (
 
 var configName string
 var RootCmd = &cobra.Command{
-	Use:   "batch coint app",
+	Use:   "augehorus",
 	Short: "short description",
 	Long:  `long description`,
 	Run: func(cmd *cobra.Command, args []string) {
