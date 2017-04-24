@@ -8,8 +8,6 @@ gvm use go1.7.1
 
 ## app set up
 make deps
-
-## app set up
 make build
 
 ## make other commands
@@ -22,11 +20,6 @@ make run_import
 make run_server
 
 ##  server url
-### monitor
 http://localhost:8080/monitor
-
-### tickers by coin check
 http://localhost:8080/tickers
-
-### trades by coin check
 http://localhost:8080/trades
