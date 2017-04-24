@@ -1,33 +1,53 @@
-package importer
+package batches
 
 import (
 	"context"
 	"fmt"
-	"log"
-	"reflect"
-	"runtime"
+	"math/rand"
+	"os"
 	"sync"
 	"time"
 
 	httpClient "github.com/KoganezawaRyouta/augehorus/http/client"
 	"github.com/KoganezawaRyouta/augehorus/model"
 	"github.com/KoganezawaRyouta/augehorus/orm"
+	"github.com/KoganezawaRyouta/augehorus/settings"
+	"github.com/go-kit/kit/log"
 )
 
 type Vacuummer struct {
 	dbAdapter *orm.GormAdapter
+	config    *settings.Config
+	logger    log.Logger
+	elapsed   time.Duration
 }
 
 // NewVacuummer  init of Vacuummer
-func NewVacuummer(dbAdapter *orm.GormAdapter) *Vacuummer {
+func NewVacuummer(config *settings.Config) *Vacuummer {
 	vacuummer := Vacuummer{}
+	rand.Seed(time.Now().UnixNano())
+	vacuummer.elapsed = time.Since(time.Now())
+
+	dbAdapter := orm.NewGormAdapter(config)
 	vacuummer.dbAdapter = dbAdapter
+	vacuummer.config = config
+
+	logfile, err := os.OpenFile(vacuummer.config.Batch.LogFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	if err != nil {
+		panic("cannnot open " + vacuummer.config.Batch.LogFile + err.Error())
+	}
+	var logger log.Logger
+	defer logfile.Close()
+	logger = log.NewJSONLogger(log.NewSyncWriter(logfile))
+	logger = log.With(logger, "ts", log.DefaultTimestampUTC, "caller", log.DefaultCaller)
+	vacuummer.logger = logger
 	return &vacuummer
 }
 
 // Vacuum it obtains the information of the trades and ticker from coincheck.jp,
 // and register to DB
 func (vc *Vacuummer) Run() {
+	vc.logger.Log("importer start")
 
 	wg := &sync.WaitGroup{}
 	queue := make(chan func(*orm.GormAdapter) bool)
@@ -45,6 +65,9 @@ func (vc *Vacuummer) Run() {
 	enqueue(queue, importTrades)
 
 	wg.Wait()
+
+	vc.logger.Log("elapsed: ", vc.elapsed)
+	vc.logger.Log("importer end")
 }
 
 func enqueue(queue chan func(*orm.GormAdapter) bool, job func(*orm.GormAdapter) bool) {
@@ -80,15 +103,4 @@ func importTrades(dbAdapter *orm.GormAdapter) bool {
 		dbAdapter.DB.Create(&trade)
 	}
 	return true
-}
-
-func checkErr(err error, msg string) {
-	if err != nil {
-		log.Fatalln(msg, err)
-	}
-}
-
-func methodName(i interface{}) string {
-	iv := reflect.ValueOf(i)
-	return runtime.FuncForPC(iv.Pointer()).Name()
 }

@@ -1,5 +1,5 @@
-hash: f4e52f9b99a1bffc94ab8c634892707cbea3e14767f53f7362c4921870b96ff3
-updated: 2017-04-19T23:56:47.389521966+09:00
+hash: 65976987b70824ab64c82eb604246d5ca92c9e74971c3e05afeaaf480c4d971f
+updated: 2017-04-25T00:29:00.085689286+09:00
 imports:
 - name: github.com/buaazp/fasthttprouter
   version: ade4e2031af3aed7fffd241084aad80a58faf421
@@ -52,6 +52,8 @@ imports:
   version: b84e30acd515aadc4b783ad4ff83aff3299bdfe0
 - name: github.com/magiconair/properties
   version: 51463bfca2576e06c62a8504b5c0f06d61312647
+- name: github.com/mitchellh/go-ps
+  version: 4fdf99ab29366514c69ccccddab5dc58b8d84062
 - name: github.com/mitchellh/mapstructure
   version: 53818660ed4955e899c0bcafa97299a388bd7c8e
 - name: github.com/pelletier/go-buffruneio

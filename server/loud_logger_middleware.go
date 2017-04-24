@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/KoganezawaRyouta/augehorus/settings"
 	"github.com/go-kit/kit/log"
 
 	"github.com/valyala/fasthttp"
@@ -16,10 +17,10 @@ type LoudLoggerMiddleware struct {
 }
 
 // NewLoudLoggerMiddleware ttt
-func NewLoudLoggerMiddleware() *LoudLoggerMiddleware {
-	logfile, err := os.OpenFile("./tmp/development_request.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+func NewLoudLoggerMiddleware(config *settings.Config) *LoudLoggerMiddleware {
+	logfile, err := os.OpenFile(config.Server.LogFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
-		panic("cannnot open development_request.log:" + err.Error())
+		panic("cannnot open " + config.Server.LogFile + err.Error())
 	}
 
 	logger = log.NewJSONLogger(log.NewSyncWriter(logfile))

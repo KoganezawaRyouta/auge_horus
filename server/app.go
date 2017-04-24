@@ -2,6 +2,7 @@ package server
 
 import (
 	"github.com/KoganezawaRyouta/augehorus/orm"
+	"github.com/KoganezawaRyouta/augehorus/settings"
 	"github.com/buaazp/fasthttprouter"
 	"github.com/valyala/fasthttp"
 )
@@ -11,9 +12,9 @@ type App struct {
 	Router    *fasthttprouter.Router
 }
 
-func AppNew(configName string) *App {
+func AppNew(config *settings.Config) *App {
 	app := &App{
-		DbAdapter: orm.NewGormAdapter(configName),
+		DbAdapter: orm.NewGormAdapter(config),
 		Router:    fasthttprouter.New(),
 	}
 

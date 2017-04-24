@@ -8,7 +8,17 @@ const adapterNameMysql string = "mysql"
 const adapterNameMysql2 string = "mysql2"
 
 type Config struct {
-	DB *DBConfig `mapstructure:"database"`
+	DB     *DBConfig     `mapstructure:"database"`
+	Batch  *BatchConfig  `mapstructure:"batch"`
+	Server *ServerConfig `mapstructure:"server"`
+}
+
+type ServerConfig struct {
+	LogFile string
+}
+
+type BatchConfig struct {
+	LogFile string
 }
 
 type DBConfig struct {
@@ -21,6 +31,7 @@ type DBConfig struct {
 	Host     string
 	Port     int
 	Pool     int
+	LogFile  string
 }
 
 // AdapterName get db adapter name

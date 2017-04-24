@@ -1,7 +1,6 @@
 package orm
 
 import (
-	"fmt"
 	"log"
 	"os"
 
@@ -9,7 +8,6 @@ import (
 	"github.com/KoganezawaRyouta/augehorus/settings"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-	"github.com/spf13/viper"
 )
 
 // GormAdapter adaptert of gorm.DB
@@ -19,9 +17,9 @@ type GormAdapter struct {
 }
 
 // NewGormAdapter  init of db adapter
-func NewGormAdapter(configName string) *GormAdapter {
+func NewGormAdapter(config *settings.Config) *GormAdapter {
 	adapter := GormAdapter{}
-	adapter.LoadConfig(configName)
+	adapter.Config = config
 	adapter.InitDb()
 	return &adapter
 }
@@ -33,9 +31,9 @@ func (s *GormAdapter) InitDb() {
 		panic(err.Error())
 	}
 
-	logfile, err := os.OpenFile("./tmp/development_db.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	logfile, err := os.OpenFile(s.Config.DB.LogFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
-		panic("cannnot open development_db.log:" + err.Error())
+		panic("cannnot open " + s.Config.DB.LogFile + err.Error())
 	}
 	db.SetLogger(log.New(logfile, "****", log.LstdFlags|log.Llongfile))
 	s.DB = db
@@ -46,15 +44,4 @@ func (s *GormAdapter) InitDb() {
 func (s *GormAdapter) InitSchema() {
 	s.DB.AutoMigrate(&model.Ticker{})
 	s.DB.AutoMigrate(&model.Trade{})
-}
-
-// LoadConfig db settings
-func (s *GormAdapter) LoadConfig(configName string) {
-	viper.SetConfigType("yaml")
-	viper.SetConfigName(configName)
-	viper.AddConfigPath(".")
-	if err := viper.ReadInConfig(); err != nil {
-		panic(fmt.Errorf("louding conf error: %s \n", err))
-	}
-	viper.Unmarshal(&s.Config)
 }

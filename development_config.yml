@@ -9,3 +9,8 @@ database:
   port:     3306
   pool:     5
   reconnect: true
+  logFile: ./tmp/development_db.log
+batch:
+  logFile: ./tmp/development_batches.log
+server:
+  logFile: ./tmp/development_request.log
