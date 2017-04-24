@@ -15,6 +15,7 @@ type Config struct {
 
 type ServerConfig struct {
 	LogFile string
+	Port    string
 }
 
 type BatchConfig struct {

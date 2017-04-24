@@ -28,6 +28,7 @@ make run_server
 ```
 
 ##  server url
-http://localhost:8080/monitor
-http://localhost:8080/tickers
-http://localhost:8080/trades
+
+* http://localhost:8080/monitor
+* http://localhost:8080/tickers
+* http://localhost:8080/trades

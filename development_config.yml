@@ -14,3 +14,4 @@ batch:
   logFile: ./tmp/development_batches.log
 server:
   logFile: ./tmp/development_request.log
+  port: :8080

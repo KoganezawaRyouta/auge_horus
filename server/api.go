@@ -33,5 +33,5 @@ func ApiNew(config *settings.Config) *Api {
 }
 
 func (app *Api) Listen() error {
-	return fasthttp.ListenAndServe(":8080", app.Uppercut.Handler)
+	return fasthttp.ListenAndServe(app.Config.Server.Port, app.Uppercut.Handler)
 }
