@@ -6,17 +6,27 @@ gvm install go1.7.1
 gvm use go1.7.1
 ```
 
-# app build step
+## app set up
 make deps
 
-# make other commands
+## app set up
+make build
+
+## make other commands
 make help
 
-# import rate of bit coint by coin check
+## import rate of bit coint by coin check
 make run_import
 
-# run api server
+## run api server
 make run_server
 
-# stop api server
-make stop_server
+##  server url
+### monitor
+http://localhost:8080/monitor
+
+### tickers by coin check
+http://localhost:8080/tickers
+
+### trades by coin check
+http://localhost:8080/trades
