@@ -11,7 +11,12 @@ database:
   reconnect: true
   logFile: ./tmp/development_db.log
 batch:
-  logFile: ./tmp/development_batches.log
-server:
-  logFile: ./tmp/development_request.log
-  port: :8080
+  logFile: ./tmp/development_batche.log
+apiServer:
+  logFile: ./tmp/development_api.log
+  port: :3001
+  pidFile: ./tmp/api_server.pid
+appServer:
+  logFile: ./tmp/development_app.log
+  port: :3000
+  pidFile: ./tmp/app_server.pid

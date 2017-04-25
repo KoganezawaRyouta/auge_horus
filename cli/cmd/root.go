@@ -21,9 +21,11 @@ var RootCmd = &cobra.Command{
 func init() {
 	cobra.OnInitialize()
 	importerCmd.Flags().StringVarP(&configName, "config", "c", "development_config", "default value is development_config")
-	serverCmd.Flags().StringVarP(&configName, "config", "c", "development_config", "default value is development_config")
+	apiServerCmd.Flags().StringVarP(&configName, "config", "c", "development_config", "default value is development_config")
+	appServerCmd.Flags().StringVarP(&configName, "config", "c", "development_config", "default value is development_config")
 	RootCmd.AddCommand(importerCmd)
-	RootCmd.AddCommand(serverCmd)
+	RootCmd.AddCommand(apiServerCmd)
+	RootCmd.AddCommand(appServerCmd)
 }
 
 // LoadConfig db settings

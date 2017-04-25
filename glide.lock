@@ -1,5 +1,5 @@
-hash: 65976987b70824ab64c82eb604246d5ca92c9e74971c3e05afeaaf480c4d971f
-updated: 2017-04-25T00:29:00.085689286+09:00
+hash: ed445985cbbcc7dd244c23a1040f11aa5a0006fad79ae31a79d8ba0f216d09d2
+updated: 2017-04-26T00:31:12.319781119+09:00
 imports:
 - name: github.com/buaazp/fasthttprouter
   version: ade4e2031af3aed7fffd241084aad80a58faf421
@@ -50,8 +50,19 @@ imports:
   version: 8f44bc5b94fbe466675fffabb7bcc4309da99a57
 - name: github.com/kr/logfmt
   version: b84e30acd515aadc4b783ad4ff83aff3299bdfe0
+- name: github.com/labstack/echo
+  version: 948d607539e92f3974d8f24951c8975d7342e24a
+- name: github.com/labstack/gommon
+  version: 9298d710c664bcd21c454120f63a00fb7d484458
+  subpackages:
+  - color
+  - log
 - name: github.com/magiconair/properties
   version: 51463bfca2576e06c62a8504b5c0f06d61312647
+- name: github.com/mattn/go-colorable
+  version: ded68f7a9561c023e790de24279db7ebf473ea80
+- name: github.com/mattn/go-isatty
+  version: fc9e8d8ef48496124e79ae0df75490096eccf6fe
 - name: github.com/mitchellh/go-ps
   version: 4fdf99ab29366514c69ccccddab5dc58b8d84062
 - name: github.com/mitchellh/mapstructure
@@ -76,10 +87,19 @@ imports:
   version: 9a906f17374922ed0f74e1b2f593d3723f2ffb00
 - name: github.com/spf13/viper
   version: 84f94806c67f59dd7ae87bc5351f7a9c94a4558d
+- name: github.com/valyala/bytebufferpool
+  version: e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7
 - name: github.com/valyala/fasthttp
   version: d42167fd04f636e20b005e9934159e95454233c7
   subpackages:
   - fasthttputil
+- name: github.com/valyala/fasttemplate
+  version: dcecefd839c4193db0d35b88ec65b4c12d360ab0
+- name: golang.org/x/crypto
+  version: 3543873453996aaab2fc6b3928a35fc5ca2b5afb
+  subpackages:
+  - acme
+  - acme/autocert
 - name: golang.org/x/sys
   version: f3918c30c5c2cb527c0b071a27c35120a6c0719a
   subpackages:

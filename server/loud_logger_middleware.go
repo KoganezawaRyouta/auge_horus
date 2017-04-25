@@ -18,9 +18,9 @@ type LoudLoggerMiddleware struct {
 
 // NewLoudLoggerMiddleware ttt
 func NewLoudLoggerMiddleware(config *settings.Config) *LoudLoggerMiddleware {
-	logfile, err := os.OpenFile(config.Server.LogFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	logfile, err := os.OpenFile(config.ApiServer.LogFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
-		panic("cannnot open " + config.Server.LogFile + err.Error())
+		panic("cannnot open " + config.ApiServer.LogFile + err.Error())
 	}
 
 	logger = log.NewJSONLogger(log.NewSyncWriter(logfile))

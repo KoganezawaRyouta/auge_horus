@@ -8,14 +8,22 @@ const adapterNameMysql string = "mysql"
 const adapterNameMysql2 string = "mysql2"
 
 type Config struct {
-	DB     *DBConfig     `mapstructure:"database"`
-	Batch  *BatchConfig  `mapstructure:"batch"`
-	Server *ServerConfig `mapstructure:"server"`
+	DB        *DBConfig        `mapstructure:"database"`
+	Batch     *BatchConfig     `mapstructure:"batch"`
+	AppServer *AppServerConfig `mapstructure:"appServer"`
+	ApiServer *ApiServerConfig `mapstructure:"apiServer"`
 }
 
-type ServerConfig struct {
+type AppServerConfig struct {
 	LogFile string
 	Port    string
+	PidFile string
+}
+
+type ApiServerConfig struct {
+	LogFile string
+	Port    string
+	PidFile string
 }
 
 type BatchConfig struct {

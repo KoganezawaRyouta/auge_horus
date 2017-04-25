@@ -24,3 +24,5 @@ import:
   version: ^1.0.0
 - package: github.com/KoganezawaRyouta/uppercut
 - package: github.com/mitchellh/go-ps
+- package: github.com/labstack/echo
+  version: ^3.1.0-rc.1

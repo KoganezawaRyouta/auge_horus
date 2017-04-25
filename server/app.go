@@ -1,32 +1,34 @@
 package server
 
 import (
+	"net/http"
+
 	"github.com/KoganezawaRyouta/augehorus/orm"
 	"github.com/KoganezawaRyouta/augehorus/settings"
-	"github.com/buaazp/fasthttprouter"
-	"github.com/valyala/fasthttp"
+	"github.com/labstack/echo"
 )
 
 type App struct {
 	DbAdapter *orm.GormAdapter
-	Router    *fasthttprouter.Router
+	Config    *settings.Config
+	echofw    *echo.Echo
 }
 
 func AppNew(config *settings.Config) *App {
 	app := &App{
 		DbAdapter: orm.NewGormAdapter(config),
-		Router:    fasthttprouter.New(),
+		Config:    config,
 	}
 
-	// set Router
-	{
-		// app.Router.GET("/tickers", app.Tickers)
-		// app.Router.GET("/trades", app.Trades)
-	}
+	e := echo.New()
+	e.GET("/", func(c echo.Context) error {
+		return c.String(http.StatusOK, "Hello, World!")
+	})
+	app.echofw = e
 
 	return app
 }
 
 func (app *App) Listen() error {
-	return fasthttp.ListenAndServe(":9090", app.Router.Handler)
+	return app.echofw.Start(app.Config.AppServer.Port)
 }

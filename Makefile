@@ -54,13 +54,22 @@ run_version:
 	@$(BINARY) version
 
 ## running api server
-run_server:
-	@$(BINARY) server
+run_api_server:
+	@$(BINARY) api_server
+
+## running app server
+run_app_server:
+	@$(BINARY) app_server
 
 ## stop api server
-stop_server:
+stop_api_server:
 	@kill -9 `cat ./tmp/api_server.pid`
 	@echo "stop server!!, pid: " `cat ./tmp/api_server.pid`
+
+## stop app server
+stop_app_server:
+	@kill -9 `cat ./tmp/app_server.pid`
+	@echo "stop server!!, pid: " `cat ./tmp/app_server.pid`
 
 ## clean up tmp dir and binary
 clean:
