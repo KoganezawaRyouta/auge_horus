@@ -5,7 +5,8 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/KoganezawaRyouta/augehorus/server"
+	webApp "github.com/KoganezawaRyouta/augehorus/app"
+	webApi "github.com/KoganezawaRyouta/augehorus/api"
 	"github.com/KoganezawaRyouta/augehorus/settings"
 	"github.com/mitchellh/go-ps"
 	"github.com/spf13/cobra"
@@ -32,7 +33,7 @@ var apiServerCmd = &cobra.Command{
 			setpidInfo(pidInfo, ppidInfo)
 			removePIDFile(config.ApiServer.PidFile)
 			savePID(config.ApiServer.PidFile, pid)
-			errsCh <- server.ApiNew(config).Listen()
+			errsCh <- webApi.ApiNew(config).Listen()
 		}()
 		stdlog.Fatalln("terminated", <-errsCh)
 	},
@@ -59,7 +60,7 @@ var appServerCmd = &cobra.Command{
 			setpidInfo(pidInfo, ppidInfo)
 			removePIDFile(config.AppServer.PidFile)
 			savePID(config.AppServer.PidFile, pid)
-			errsCh <- server.AppNew(config).Listen()
+			errsCh <- webApp.AppNew(config).Listen()
 		}()
 		stdlog.Fatalln("terminated", <-errsCh)
 	},

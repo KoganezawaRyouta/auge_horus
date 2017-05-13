@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/KoganezawaRyouta/augehorus/batches"
+	"github.com/KoganezawaRyouta/augehorus/batche"
 	"github.com/spf13/cobra"
 )
 
@@ -11,6 +11,6 @@ var importerCmd = &cobra.Command{
 	Long:  `import bitcoin rate info to database`,
 	Run: func(cmd *cobra.Command, args []string) {
 		config := LoadConfig(configName)
-		batches.NewVacuummer(config).Run()
+		batche.NewVacuummer(config).Run()
 	},
 }

@@ -1,6 +1,7 @@
-package server
+package api
 
 import (
+	"github.com/KoganezawaRyouta/augehorus/middleware"
 	"github.com/KoganezawaRyouta/augehorus/orm"
 	"github.com/KoganezawaRyouta/augehorus/settings"
 	"github.com/KoganezawaRyouta/uppercut"
@@ -27,8 +28,8 @@ func ApiNew(config *settings.Config) *Api {
 	router.GET("/monitor", app.Monitor)
 
 	app.Uppercut = uppercut.NewUppercut(router.Handler)
-	app.Uppercut.AddCounters(NewLoudLoggerMiddleware(config))
-	app.Uppercut.AddSyncCounters(PanicWrapMiddleware)
+	app.Uppercut.AddCounters(middleware.NewLoudLoggerMiddleware(config))
+	app.Uppercut.AddHooks(middleware.CrashMiddleware)
 	return app
 }
 

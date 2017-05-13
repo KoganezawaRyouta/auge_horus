@@ -1,4 +1,4 @@
-package server
+package middleware
 
 import (
 	"encoding/json"
@@ -7,7 +7,7 @@ import (
 	"github.com/valyala/fasthttp"
 )
 
-var PanicWrapMiddleware = uppercut.CounterFunc(func(ctx *fasthttp.RequestCtx) {
+var CrashMiddleware = uppercut.CounterFunc(func(ctx *fasthttp.RequestCtx) {
 	defer func() {
 		err := recover()
 

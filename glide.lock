@@ -47,7 +47,7 @@ imports:
 - name: github.com/klauspost/crc32
   version: cb6bfca970f6908083f26f39a79009d608efd5cd
 - name: github.com/KoganezawaRyouta/uppercut
-  version: 8f44bc5b94fbe466675fffabb7bcc4309da99a57
+  version: 7d9eee3df87cc6b36783dacea0814900a8527be9
 - name: github.com/kr/logfmt
   version: b84e30acd515aadc4b783ad4ff83aff3299bdfe0
 - name: github.com/labstack/echo

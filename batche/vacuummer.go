@@ -1,4 +1,4 @@
-package batches
+package batche
 
 import (
 	"context"

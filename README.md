@@ -32,3 +32,6 @@ make run_server
 * http://localhost:8080/monitor
 * http://localhost:8080/tickers
 * http://localhost:8080/trades
+
+## ec2 provisioning
+@see https://github.com/KoganezawaRyouta/private_ansible

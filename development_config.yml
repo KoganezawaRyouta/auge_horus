@@ -14,9 +14,9 @@ batch:
   logFile: ./tmp/development_batche.log
 apiServer:
   logFile: ./tmp/development_api.log
-  port: :3001
+  port: :5001
   pidFile: ./tmp/api_server.pid
 appServer:
   logFile: ./tmp/development_app.log
-  port: :3000
+  port: :5000
   pidFile: ./tmp/app_server.pid
