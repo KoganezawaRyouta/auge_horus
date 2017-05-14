@@ -12,6 +12,12 @@ make deps
 make build
 ```
 
+## db set up
+```
+bundle exec rake db:create or mysql -u root < db/create_database.sql
+bundle exec rake db:migrate
+```
+
 ## make other commands
 ```
 make help

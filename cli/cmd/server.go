@@ -29,7 +29,7 @@ var apiServerCmd = &cobra.Command{
 			stdlog.Printf("\n=================")
 			stdlog.Printf(" Parent process name : %s\n", ppidInfo.Executable())
 
-			config := LoadConfig(configName)
+			config := LoadConfig(configName, ENV)
 			setpidInfo(pidInfo, ppidInfo)
 			removePIDFile(config.ApiServer.PidFile)
 			savePID(config.ApiServer.PidFile, pid)
@@ -56,7 +56,7 @@ var appServerCmd = &cobra.Command{
 			stdlog.Printf("\n=================")
 			stdlog.Printf(" Parent process name : %s\n", ppidInfo.Executable())
 
-			config := LoadConfig(configName)
+			config := LoadConfig(configName, ENV)
 			setpidInfo(pidInfo, ppidInfo)
 			removePIDFile(config.AppServer.PidFile)
 			savePID(config.AppServer.PidFile, pid)

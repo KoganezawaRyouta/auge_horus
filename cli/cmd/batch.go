@@ -10,7 +10,7 @@ var importerCmd = &cobra.Command{
 	Short: "import bitcoin rate info to database",
 	Long:  `import bitcoin rate info to database`,
 	Run: func(cmd *cobra.Command, args []string) {
-		config := LoadConfig(configName)
+		config := LoadConfig(configName, ENV)
 		batche.NewVacuummer(config).Run()
 	},
 }

@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
-gem 'ridgepole'
-gem 'activerecord-mysql-awesome'
+gem 'mysql2'
+gem 'standalone_migrations'
