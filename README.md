@@ -30,7 +30,12 @@ make run_import
 
 ## run api server
 ```
-make run_server
+make run_api_server
+```
+
+## run app server
+```
+make run_app_server
 ```
 
 ##  server url

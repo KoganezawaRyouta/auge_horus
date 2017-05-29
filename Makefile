@@ -77,7 +77,7 @@ clean:
 
 ## install dependencies
 deps: setup $(VENDORDIR)
-	@glide install
+	@dep ensure -update
 
 ## format source code
 fmt:
@@ -100,8 +100,8 @@ setup: $(TMPDIR)
 	@if [ -z `which make2help 2> /dev/null` ]; then \
 		go get github.com/Songmu/make2help/cmd/make2help; \
 		fi
-	@if [ -z `which glide 2> /dev/null` ]; then \
-		curl https://glide.sh/get | sh; \
+	@if [ -z `which dep 2> /dev/null` ]; then \
+		go get go github.com/golang/dep/cmd/dep; \
 		fi
 
 ## setup for github release

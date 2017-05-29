@@ -3,7 +3,7 @@
 .DS_Store
 pkg/*
 bin/*
-vendor/*
+*vendor**
 !/vendor/manifest
 tmp/*
 .bundle
