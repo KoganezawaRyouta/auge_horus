@@ -13,6 +13,11 @@ development:
   <<: *default
   database: augehorus_development
 
+integration:
+  <<: *default
+  database: augehorus_integration
+  host:     10.0.2.10
+
 test:
   <<: *default
   database: augehorus_test

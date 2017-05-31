@@ -1,0 +1,22 @@
+database:
+  adapter:  mysql
+  charset:  utf8mb4
+  encoding: utf8mb4
+  database: augehorus_development
+  username: coin_app
+  password: test
+  host:     10.0.2.10
+  port:     3306
+  pool:     5
+  reconnect: true
+  logFile: ./tmp/integration_db.log
+batch:
+  logFile: ./tmp/integration_batche.log
+apiServer:
+  logFile: ./tmp/integration_api.log
+  port: :5001
+  pidFile: ./tmp/api_server.pid
+appServer:
+  logFile: ./tmp/integration_app.log
+  port: :5000
+  pidFile: ./tmp/app_server.pid
