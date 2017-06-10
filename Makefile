@@ -101,7 +101,7 @@ setup: $(TMPDIR)
 		go get github.com/Songmu/make2help/cmd/make2help; \
 		fi
 	@if [ -z `which dep 2> /dev/null` ]; then \
-		go get go github.com/golang/dep/cmd/dep; \
+		go get github.com/golang/dep/cmd/dep; \
 		fi
 
 ## setup for github release
@@ -109,7 +109,7 @@ setup_github_release:
 	@if [ -z `which gox 2> /dev/null` ]; then \
 		go get -v github.com/mitchellh/gox; \
 		fi
-	@if [ -z `which ghr 2> /dev/null` ]; then \
+	@if [ -z `which ghr 2> /dev/anull` ]; then \
 		go get -v github.com/tcnksm/ghr; \
 		fi
 
