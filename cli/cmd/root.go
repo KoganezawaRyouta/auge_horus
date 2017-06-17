@@ -6,6 +6,7 @@ import (
 	"github.com/KoganezawaRyouta/augehorus/settings"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+   stdlog "log"
 )
 
 var configName string
@@ -34,6 +35,8 @@ func init() {
 
 // LoadConfig db settings
 func LoadConfig(configName string, ENV string) *settings.Config {
+  stdlog.Printf("env : %s\n", ENV)
+
 	var config *settings.Config
 	viper.SetConfigType("yaml")
 	viper.SetConfigName(configName + "." + ENV)
