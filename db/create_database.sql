@@ -14,3 +14,13 @@ GRANT ALL PRIVILEGES ON augehorus_test.* TO 'coin_app'@'%' IDENTIFIED BY 'test';
 -- ログインする時
 -- mysql -h localhost -u coin_app -p
 -- use augehorus_development;
+
+
+-- integration
+-- mysql -u root
+-- how databases
+-- REATE DATABASE augehorus_integration
+-- RLTER DATABASE augehorus_integration DEFAULT CHARACTER SET=utf8;
+-- RRANT ALL ON augehorus_integration.* to coin_app@10.0.1.10;
+-- RET PASSWORD FOR coin_app@10.0.1.10=password('test');
+
