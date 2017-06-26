@@ -23,7 +23,7 @@ BINARY_NAME=augehorus
 BINARY=$(BINDIR)/$(BINARY_NAME)
 SRC=$(shell find . -name "*.go")
 
-LDFLAGS=-X "github.com/KoganezawaRyouta/augehorus/settings.Version=$(VERSION)" -X "github.com/KoganezawaRyouta/augehorus/settings.GoVersion=$(GOVERSION)" -X "github.com/KoganezawaRyouta/augehorus/settings.BuildDhash=$(BUILDHASH)"
+LDFLAGS=-X "github.com/KoganezawaRyouta/augehorus/config.Version=$(VERSION)" -X "github.com/KoganezawaRyouta/augehorus/config.GoVersion=$(GOVERSION)" -X "github.com/KoganezawaRyouta/augehorus/config.BuildDhash=$(BUILDHASH)"
 GOFLAGS=-ldflags '$(LDFLAGS)'
 
 $(BINDIR):

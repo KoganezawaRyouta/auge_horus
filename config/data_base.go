@@ -1,7 +1,9 @@
 package config
 
 import (
-  "fmt"
+	"fmt"
+	"os"
+	"strconv"
 )
 
 const adapterNameMysql string = "mysql"
@@ -18,6 +20,29 @@ type DBConfig struct {
 	Port     int
 	Pool     int
 	LogFile  string
+}
+
+func DBConfigNew() *DBConfig {
+	port, err := strconv.Atoi(os.Getenv("DB_PORT"))
+	if err != nil {
+		panic("cannnot get db port value : " + err.Error())
+	}
+	pool, err := strconv.Atoi(os.Getenv("DB_POOL"))
+	if err != nil {
+		panic("cannnot get db pool value : " + err.Error())
+	}
+	return &DBConfig{
+		Adapter:  os.Getenv("DB_ADAPTER"),
+		Charset:  os.Getenv("DB_CHARSET"),
+		Encoding: os.Getenv("DB_ENCORDING"),
+		Database: os.Getenv("DB_DATABASE"),
+		Username: os.Getenv("DB_USER_NAME"),
+		Password: os.Getenv("DB_PASSWORD"),
+		Host:     os.Getenv("DB_HOST"),
+		Port:     port,
+		Pool:     pool,
+		LogFile:  os.Getenv("DB_LOGFILE"),
+	}
 }
 
 // AdapterName get db adapter name

@@ -14,12 +14,6 @@
   version = "v0.1.1"
 
 [[projects]]
-  name = "github.com/fsnotify/fsnotify"
-  packages = ["."]
-  revision = "629574ca2a5df945712d3079857300b5e4da0236"
-  version = "v1.4.2"
-
-[[projects]]
   name = "github.com/go-kit/kit"
   packages = ["log"]
   revision = "fadad6fffe0466b19df9efd9acde5c9a52df5fa4"
@@ -42,12 +36,6 @@
   packages = ["."]
   revision = "7a2f19628aabfe68f0766b59e74d6315f8347d22"
   version = "v1.5.3"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/hashicorp/hcl"
-  packages = [".","hcl/ast","hcl/parser","hcl/scanner","hcl/strconv","hcl/token","json/parser","json/scanner","json/token"]
-  revision = "392dba7d905ed5d04a5794ba89f558b27e2ba1ca"
 
 [[projects]]
   branch = "master"
@@ -94,8 +82,8 @@
 [[projects]]
   name = "github.com/labstack/echo"
   packages = ["."]
-  revision = "1049c9613cd371b7ea8f219404c9a821734781ed"
-  version = "v3.1.0"
+  revision = "935a60782cbbc55110e7bd4b33120e4567cbee43"
+  version = "v3.2.1"
 
 [[projects]]
   name = "github.com/labstack/gommon"
@@ -104,16 +92,10 @@
   version = "v0.2.1"
 
 [[projects]]
-  name = "github.com/magiconair/properties"
-  packages = ["."]
-  revision = "f917359f079a3759162704eaa8caeec3d01d9f91"
-  version = "v1.7.2"
-
-[[projects]]
   name = "github.com/mattn/go-colorable"
   packages = ["."]
-  revision = "d228849504861217f796da67fae4f6e347643f15"
-  version = "v0.0.7"
+  revision = "941b50ebc6efddf4c41c8e4537a5f68a4e686b24"
+  version = "v0.0.8"
 
 [[projects]]
   name = "github.com/mattn/go-isatty"
@@ -129,57 +111,15 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/mitchellh/mapstructure"
-  packages = ["."]
-  revision = "d0303fe809921458f417bcf828397a65db30a7e4"
-
-[[projects]]
-  name = "github.com/pelletier/go-buffruneio"
-  packages = ["."]
-  revision = "c37440a7cf42ac63b919c752ca73a85067e05992"
-  version = "v0.2.0"
-
-[[projects]]
-  name = "github.com/pelletier/go-toml"
-  packages = ["."]
-  revision = "13d49d4606eb801b8f01ae542b4afc4c6ee3d84a"
-  version = "v0.5.0"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/spf13/afero"
-  packages = [".","mem"]
-  revision = "9be650865eab0c12963d8753212f4f9c66cdcf12"
-
-[[projects]]
-  name = "github.com/spf13/cast"
-  packages = ["."]
-  revision = "acbeb36b902d72a7a4c18e8f3241075e7ab763e4"
-  version = "v1.1.0"
-
-[[projects]]
-  branch = "master"
   name = "github.com/spf13/cobra"
   packages = ["."]
-  revision = "e606913c4ee45fec232e67e70105fb6c866b95d9"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/spf13/jwalterweatherman"
-  packages = ["."]
-  revision = "0efa5202c04663c757d84f90f5219c1250baf94f"
+  revision = "4d647c8944eb42504a714e57e97f244ed6344722"
 
 [[projects]]
   branch = "master"
   name = "github.com/spf13/pflag"
   packages = ["."]
   revision = "e57e3eeb33f795204c1ca35f56c44f83227c6e66"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/spf13/viper"
-  packages = ["."]
-  revision = "0967fc9aceab2ce9da34061253ac10fb99bba5b2"
 
 [[projects]]
   branch = "master"
@@ -203,29 +143,17 @@
   branch = "master"
   name = "golang.org/x/crypto"
   packages = ["acme","acme/autocert"]
-  revision = "7e9105388ebff089b3f99f0ef676ea55a6da3a7e"
+  revision = "adbae1b6b6fb4b02448a0fc0dbbc9ba2b95b294d"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "a55a76086885b80f79961eacb876ebd8caf3868d"
-
-[[projects]]
-  branch = "master"
-  name = "golang.org/x/text"
-  packages = ["internal/gen","internal/triegen","internal/ucd","transform","unicode/cldr","unicode/norm"]
-  revision = "19e51611da83d6be54ddafce4a4af510cb3e9ea4"
-
-[[projects]]
-  branch = "v2"
-  name = "gopkg.in/yaml.v2"
-  packages = ["."]
-  revision = "cd8b52f8269e0feb286dfeef29f8fe4d5b397e0b"
+  revision = "c23410a886927bab8ca5e80b08af6a56faeb330d"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "7064b85ee2f01acbf96e4a06396d2bc0b8f9b31b98b7f0b59d4609d9710dbf95"
+  inputs-digest = "8cb00f6102ba8a38ba7959c6ac329f1321957cf76e830a5a0e29c14fae6a95e9"
   solver-name = "gps-cdcl"
   solver-version = 1

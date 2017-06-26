@@ -1,17 +1,17 @@
 package app
 
 import (
-	"net/http"
-	"github.com/KoganezawaRyouta/augehorus/settings"
+	"github.com/KoganezawaRyouta/augehorus/config"
 	"github.com/labstack/echo"
+	"net/http"
 )
 
 type App struct {
-	Config    *settings.Config
-	echofw    *echo.Echo
+	Config *config.Config
+	echofw *echo.Echo
 }
 
-func AppNew(config *settings.Config) *App {
+func AppNew(config *config.Config) *App {
 	app := &App{Config: config}
 
 	e := echo.New()

@@ -1,9 +1,9 @@
 package api
 
 import (
+	"github.com/KoganezawaRyouta/augehorus/config"
 	"github.com/KoganezawaRyouta/augehorus/middleware"
 	"github.com/KoganezawaRyouta/augehorus/orm"
-	"github.com/KoganezawaRyouta/augehorus/settings"
 	"github.com/KoganezawaRyouta/uppercut"
 	"github.com/buaazp/fasthttprouter"
 	"github.com/valyala/fasthttp"
@@ -12,10 +12,10 @@ import (
 type Api struct {
 	DbAdapter *orm.GormAdapter
 	Uppercut  *uppercut.Uppercut
-	Config    *settings.Config
+	Config    *config.Config
 }
 
-func ApiNew(config *settings.Config) *Api {
+func ApiNew(config *config.Config) *Api {
 	app := &Api{
 		DbAdapter: orm.NewGormAdapter(config),
 		Config:    config,

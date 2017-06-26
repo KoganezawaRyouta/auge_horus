@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/KoganezawaRyouta/augehorus/settings"
+	"github.com/KoganezawaRyouta/augehorus/config"
 	"github.com/go-kit/kit/log"
 
 	"github.com/valyala/fasthttp"
@@ -17,7 +17,7 @@ type LoudLoggerMiddleware struct {
 }
 
 // NewLoudLoggerMiddleware ttt
-func NewLoudLoggerMiddleware(config *settings.Config) *LoudLoggerMiddleware {
+func NewLoudLoggerMiddleware(config *config.Config) *LoudLoggerMiddleware {
 	logfile, err := os.OpenFile(config.ApiServer.LogFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
 		panic("cannnot open " + config.ApiServer.LogFile + err.Error())

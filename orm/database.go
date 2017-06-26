@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/KoganezawaRyouta/augehorus/config"
 	"github.com/KoganezawaRyouta/augehorus/model"
-	"github.com/KoganezawaRyouta/augehorus/settings"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 )
@@ -13,11 +13,11 @@ import (
 // GormAdapter adaptert of gorm.DB
 type GormAdapter struct {
 	DB     *gorm.DB
-	Config *settings.Config
+	Config *config.Config
 }
 
 // NewGormAdapter  init of db adapter
-func NewGormAdapter(config *settings.Config) *GormAdapter {
+func NewGormAdapter(config *config.Config) *GormAdapter {
 	adapter := GormAdapter{}
 	adapter.Config = config
 	adapter.InitDb()

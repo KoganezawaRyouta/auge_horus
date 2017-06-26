@@ -8,22 +8,22 @@ import (
 	"sync"
 	"time"
 
+	"github.com/KoganezawaRyouta/augehorus/config"
 	httpClient "github.com/KoganezawaRyouta/augehorus/http/client"
 	"github.com/KoganezawaRyouta/augehorus/model"
 	"github.com/KoganezawaRyouta/augehorus/orm"
-	"github.com/KoganezawaRyouta/augehorus/settings"
 	"github.com/go-kit/kit/log"
 )
 
 type Vacuummer struct {
 	dbAdapter *orm.GormAdapter
-	config    *settings.Config
+	config    *config.Config
 	logger    log.Logger
 	elapsed   time.Duration
 }
 
 // NewVacuummer  init of Vacuummer
-func NewVacuummer(config *settings.Config) *Vacuummer {
+func NewVacuummer(config *config.Config) *Vacuummer {
 	vacuummer := Vacuummer{}
 	rand.Seed(time.Now().UnixNano())
 	vacuummer.elapsed = time.Since(time.Now())
