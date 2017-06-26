@@ -1,0 +1,36 @@
+version: '2'
+
+services:
+  app:
+    build: .docker/web
+    env_file: .envrc
+    ports:
+      - 5000:5000
+    links:
+      - db
+    volumes:
+      - .:/go/src/app
+    command: bash -c 'cd /go/src/app && make run_app_server'
+    container_name: augehorus-web
+  api:
+    build: .docker/api
+    env_file: .envrc
+    ports:
+      - 5001:5001
+    links:
+      - db
+    volumes:
+      - .:/go/src/app
+    command: bash -c 'cd /go/src/app && make run_api_server'
+    container_name: augehorus-api
+  batch:
+    build: .docker/batch
+    env_file: .envrc
+    links:
+      - db
+    volumes:
+      - .:/go/src/app
+    command: bash -c 'cd /go/src/app && make run_import'
+    container_name: augehorus-batch
+  db:
+    image: mysql:5.7

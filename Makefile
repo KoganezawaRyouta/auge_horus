@@ -35,8 +35,6 @@ $(TMPDIR):
 $(VENDORDIR):
 	$(MKDIR_P) $@
 
-ENV=development
-
 $(BINARY): $(BINDIR) $(SRC)
 	@go build $(GOFLAGS) -o $@ ./cli
 
@@ -44,24 +42,24 @@ $(BINARY): $(BINDIR) $(SRC)
 build: deps $(BINARY)
 
 ## running batch
-run_import:
-	@$(BINARY) importer -e ${ENV}
+run_import: build
+	@$(BINARY) importer
 
 ## running batch whith help
-run_help:
+run_help: build
 	@$(BINARY) help
 
 ## running batch whith version
-run_version:
+run_version: build
 	@$(BINARY) version
 
 ## running api server
-run_api_server:
-	@$(BINARY) api_server -e ${ENV}
+run_api_server: build
+	@$(BINARY) api_server
 
 ## running app server
-run_app_server:
-	@$(BINARY) app_server -e ${ENV}
+run_app_server: build
+	@$(BINARY) app_server
 
 
 ## stop api server
