@@ -8,6 +8,7 @@ import (
 	"github.com/valyala/fasthttp"
 )
 
+// trades handler
 func (app *Api) Trades(ctx *fasthttp.RequestCtx) {
 	trades := []model.Trade{}
 	app.DbAdapter.DB.Find(&trades)
