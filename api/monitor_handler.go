@@ -3,7 +3,7 @@ package api
 import (
 	"fmt"
 
-	"github.com/KoganezawaRyouta/augehorus/settings"
+	"github.com/KoganezawaRyouta/augehorus/config"
 	"github.com/valyala/fasthttp"
 )
 
@@ -15,12 +15,12 @@ func (app *Api) Monitor(ctx *fasthttp.RequestCtx) {
 		fmt.Fprintf(ctx, "db ping: ok!!\n")
 	}
 
-	fmt.Fprintf(ctx, "server version: v%s\n", settings.Version)
-	fmt.Fprintf(ctx, "%s\n", settings.GoVersion)
-	fmt.Fprintf(ctx, "BuildDhash: %s\n", settings.BuildDhash)
+	fmt.Fprintf(ctx, "server version: v%s\n", config.Version)
+	fmt.Fprintf(ctx, "%s\n", config.GoVersion)
+	fmt.Fprintf(ctx, "BuildDhash: %s\n", config.BuildDhash)
 	fmt.Printf("=================")
-	fmt.Fprintf(ctx, "ProcessName: %s\n", settings.ProcessName)
-	fmt.Fprintf(ctx, "PID: %d\n", settings.PID)
-	fmt.Fprintf(ctx, "ParentProcessName: %s\n", settings.ParentProcessName)
-	fmt.Fprintf(ctx, "PPID: %d\n", settings.PPID)
+	fmt.Fprintf(ctx, "ProcessName: %s\n", config.ProcessName)
+	fmt.Fprintf(ctx, "PID: %d\n", config.PID)
+	fmt.Fprintf(ctx, "ParentProcessName: %s\n", config.ParentProcessName)
+	fmt.Fprintf(ctx, "PPID: %d\n", config.PPID)
 }
