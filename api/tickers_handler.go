@@ -8,6 +8,7 @@ import (
 	"github.com/valyala/fasthttp"
 )
 
+// ticker handler
 func (app *Api) Tickers(ctx *fasthttp.RequestCtx) {
 	tickers := []model.Ticker{}
 	app.DbAdapter.DB.Find(&tickers)
