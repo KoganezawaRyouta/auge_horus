@@ -7,6 +7,7 @@ import (
 	"github.com/valyala/fasthttp"
 )
 
+// monitor handler
 func (app *Api) Monitor(ctx *fasthttp.RequestCtx) {
 	err := app.DbAdapter.DB.DB().Ping()
 	if err != nil {
