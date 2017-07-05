@@ -1,0 +1,27 @@
+#!/bin/bash -x
+mkdir -p ~/develop/src/github.com/KoganezawaRyouta/augehorus
+
+export GOPATH=~/develop
+export GOBIN=$GOPATH/bin
+export PATH=$GOPATH:$GOBIN:$PATH
+
+export APP_LOG_PATH='./tmp/app.log'
+export APP_PORT=5000
+export APP_PID_FILE='./tmp/app.pid'
+
+export API_LOG_PATH='./tmp/api.log'
+export API_PORT=5001
+export API_PID_FILE='./tmp/api.pid'
+
+export BATCH_LOG_PATH='./tmp/batch.log'
+
+export DB_ADAPTER=mysql
+export DB_CHARSET=utf8mb4
+export DB_ENCORDING=utf8mb4
+export DB_DATABASE=augehorus_development
+export DB_USER_NAME=coin_app
+export DB_PASSWORD=test
+export DB_HOST=127.0.0.1
+export DB_PORT=3306
+export DB_POOL=5
+export DB_LOGFILE='./tmp/db.log'
